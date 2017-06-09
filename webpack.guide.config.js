@@ -1,12 +1,13 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
 module.exports = (env) => {
   return {
-    entry: './src/app.ts',
+    entry: './src/guide/index.tsx',
     output: {
-      path: path.join(__dirname, 'dist'),
-      filename: 'main.js'
+      path: path.join(__dirname, 'dist/guide'),
+      filename: 'bundle.js'
     },
     devtool: 'source-map',
     module: {
@@ -27,10 +28,8 @@ module.exports = (env) => {
         })
       ]
     },
-    target: 'electron-main',
-    node: {
-      __dirname: false,
-      __filename: false
-    }
+    plugins: [
+      new HtmlWebpackPlugin({ template: 'src/index.html' })
+    ]
   };
 };
