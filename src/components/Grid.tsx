@@ -16,8 +16,8 @@ export interface Props<E> {
 const Grid: React.StatelessComponent<Props<{}>> = (props) => {
   const { className, columns, items, renderItem } = props;
   const style = { width: (100 / columns) + '%' };
-  const rendered: JSX.Element[] = items.map((item) =>
-    <div style={style}>{renderItem(item)}</div>);
+  const rendered: JSX.Element[] = items.map((item, i) =>
+    <div key={i} style={style}>{renderItem(item)}</div>);
   return (
     <Container className={className}>{rendered}</Container>
   );

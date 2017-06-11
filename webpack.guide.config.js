@@ -16,6 +16,23 @@ module.exports = (env) => {
           test: /\.tsx?$/,
           exclude: /node_modules/,
           loader: 'awesome-typescript-loader'
+        },
+        {
+          test: /\.s?css$/,
+          include: [
+            path.join(__dirname, 'src/guide'),
+            path.join(__dirname, 'src/fonts'),
+          ],
+          loader: 'style-loader!css-loader!postcss-loader!sass-loader'
+        },
+        {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[hash].[ext]'
+            }
+          }
         }
       ]
     },

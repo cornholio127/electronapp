@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'icons';
+  font-weight: normal;
+  font-style: normal;
+  src: url('./themify/themify.ttf') format('truetype');
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icons' !important;
+  text-transform: none;
+  line-height: 1;
+}
+
+.icon-chevron-right:before {
+  content: '\e649';
+}
